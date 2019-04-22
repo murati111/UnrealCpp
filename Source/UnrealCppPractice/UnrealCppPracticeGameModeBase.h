@@ -13,5 +13,6 @@ UCLASS()
 class UNREALCPPPRACTICE_API AUnrealCppPracticeGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+		virtual void StartPlay() override;
 	
 };
