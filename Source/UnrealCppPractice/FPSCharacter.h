@@ -26,4 +26,21 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	//前後方向の移動入力処理
+	UFUNCTION()
+		void MoveForward(float Value);
+	//左右の移動入力処理
+	UFUNCTION()
+		void MoveRight(float Value);
+
+	//キーを押したときのジャンプフラグ設定
+	UFUNCTION()
+		void StartJump();
+	//キー解放時のジャンプフラグクリア
+	UFUNCTION()
+		void StopJump();
+	//FPSカメラ
+	UPROPERTY(VisibleAnywhere)
+		UCameraComponent* FPSCameraComponent;
+
 };
