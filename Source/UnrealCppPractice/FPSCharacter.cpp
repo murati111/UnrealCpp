@@ -18,6 +18,15 @@ AFPSCharacter::AFPSCharacter()
 	FPSCameraComponent->SetRelativeLocation(FVector(0.0f, 0.0f, 50.0f + BaseEyeHeight));
 	//ポーンがカメラの回転を制御できるようにする
 	FPSCameraComponent->bUsePawnControlRotation = true;
+	//所有しているプレイヤーのために一人称メッシュを作成
+	FPSMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FirstPersonMesh"));
+	//このメッシュは所有しているプレイヤーだけから見えるように
+	FPSMesh->SetOnlyOwnerSee(true);
+	//FPSメッシュをFPSカメラ
+	FPSMesh->bCastDynamicShadow = false;
+	FPSMesh->CastShadow = false;
+	//所有しているプレイヤーじゃ通常のボディメッシュは見えません
+	GetMesh()->SetOwnerNoSee(true);
 }
 
 // Called when the game starts or when spawned

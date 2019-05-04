@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Camera/CameraComponent.h"
 #include "GameFramework/Character.h"
 #include "FPSCharacter.generated.h"
 
@@ -42,5 +43,8 @@ public:
 	//FPSÉJÉÅÉâ
 	UPROPERTY(VisibleAnywhere)
 		UCameraComponent* FPSCameraComponent;
+
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+		USkeletalMeshComponent* FPSMesh;
 
 };
